@@ -525,7 +525,7 @@ export default function App() {
       {/* ── Header ── */}
       <header className="sticky top-0 z-20">
         <div 
-          className="bg-gradient-to-r from-pink-500 to-pink-300 shadow-lg pb-3 text-white"
+          className="bg-gradient-to-r from-pink-300 to-pink-500 shadow-lg pb-3 text-white"
           style={{ paddingTop: 'calc(env(safe-area-inset-top) + 0.875rem)' }}
         >
           <div className="max-w-lg mx-auto px-4">
