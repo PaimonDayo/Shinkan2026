@@ -526,10 +526,13 @@ export default function App() {
           <div className="max-w-lg mx-auto px-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5 relative">
-                <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-sm shrink-0">
-                  <Zap size={20} className="text-white" />
+                <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-sm shrink-0 overflow-hidden">
+                  <img src="/icon.png" alt="sakura" className="w-7 h-7 object-contain" />
                 </div>
                 <div className="relative">
+                  <p className="text-white/70 text-[10px] font-bold leading-none mb-1 tracking-widest uppercase">
+                    農工大陸上部新歓
+                  </p>
                   <button 
                     onClick={() => setShowMonthDropdown(!showMonthDropdown)}
                     className="flex items-center gap-1 text-white font-black text-xl leading-none tracking-tight focus:outline-none"

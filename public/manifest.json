@@ -1,16 +1,16 @@
 {
-  "name": "陸上メニュー",
-  "short_name": "陸上メニュー",
-  "description": "陸上競技部の毎日の練習メニューや場所情報を確認するアプリ",
+  "name": "農工大陸上部新歓",
+  "short_name": "農工大陸上部新歓",
+  "description": "陸上競技部の新歓用練習メニュー確認アプリ",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#2563EB",
   "icons": [
     {
-      "src": "/icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml"
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
     },
     {
       "src": "/icon-192.png",

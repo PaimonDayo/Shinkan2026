@@ -224,8 +224,9 @@ export async function fetchPracticeData(month, timestamp) {
       const cVal     = (row[2] ?? '').trim();   // C: 時間 or 試合名
       const location = (row[3] ?? '').trim();   // D: 場所
       const menu     = (row[4] ?? '').trim();   // E: メニュー
+      const shinkan  = (row[7] ?? '').trim();   // H: 新歓メニュー
 
-      return location || menu;
+      return location || menu || shinkan;
     })
     .map((row, i) => ({
       id:        i + 1,
