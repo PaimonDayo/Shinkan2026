@@ -525,7 +525,7 @@ export default function App() {
       {/* ── Header ── */}
       <header className="sticky top-0 z-20">
         <div 
-          className="bg-gradient-to-r from-pink-300 via-pink-400 to-pink-300 shadow-sm pb-3 text-white"
+          className="bg-gradient-to-r from-pink-500 to-pink-300 shadow-lg pb-3 text-white"
           style={{ paddingTop: 'calc(env(safe-area-inset-top) + 0.875rem)' }}
         >
           <div className="max-w-lg mx-auto px-4">
@@ -535,16 +535,16 @@ export default function App() {
                   <img src="/icon.png" alt="sakura" className="w-8 h-8 object-contain drop-shadow-sm" />
                 </div>
                 <div className="relative">
-                  <p className="text-white/90 text-[10px] font-bold leading-none mb-1 tracking-widest uppercase">
+                  <p className="text-white/80 text-[10px] font-bold leading-none mb-1 tracking-widest uppercase">
                     農工大陸上部新歓
                   </p>
                   <button 
                     onClick={() => setShowMonthDropdown(!showMonthDropdown)}
                     className="flex items-center gap-1 text-white font-black text-xl leading-none tracking-tight focus:outline-none"
                   >
-                    {activeMonth} <ChevronDown size={18} className={`transition-transform duration-200 opacity-70 ${showMonthDropdown ? 'rotate-180' : ''}`} />
+                    {activeMonth} <ChevronDown size={18} className={`transition-transform duration-200 opacity-80 ${showMonthDropdown ? 'rotate-180' : ''}`} />
                   </button>
-                  <p className="text-pink-50 text-xs font-semibold leading-none mt-1.5 tracking-wide">
+                  <p className="text-pink-50/90 text-xs font-bold leading-none mt-1.5 tracking-wide">
                     {activeMonth === '日程一覧' ? '大会・行事・記録会' : '練習メニュー'}
                   </p>
                   
