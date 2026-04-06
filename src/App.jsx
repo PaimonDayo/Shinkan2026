@@ -119,10 +119,10 @@ function PracticeCard({ item, defaultOpen = false, isToday = false, isNext = fal
                 </p>
               )}
               {isToday && (
-                <span className="text-xs font-bold px-2 py-0.5 bg-blue-600 text-white rounded-full">今日</span>
+                <span className="text-xs font-bold px-2 py-0.5 bg-pink-600 text-white rounded-full">今日</span>
               )}
               {isNext && (
-                <span className="text-xs font-bold px-2 py-0.5 bg-indigo-100 text-indigo-600 rounded-full">次の予定</span>
+                <span className="text-xs font-bold px-2 py-0.5 bg-pink-100 text-pink-600 rounded-full">次の予定</span>
               )}
               {item.type === 'event' && (
                 <span className="text-xs font-bold px-2 py-0.5 bg-fuchsia-100 text-fuchsia-700 rounded-full border border-fuchsia-200">大会・行事</span>
@@ -283,7 +283,11 @@ function SectionDivider({ label }) {
 
 export default function App() {
   const currentMonthStr = `${new Date().getMonth() + 1}月`;
-  const [activeMonth, setActiveMonth] = useState(() => months.includes(currentMonthStr) ? currentMonthStr : months[months.length - 2] ?? months[0]);
+  const [activeMonth, setActiveMonth] = useState(() => {
+    const saved = localStorage.getItem('shinkan_active_month');
+    if (saved && months.includes(saved)) return saved;
+    return months.includes(currentMonthStr) ? currentMonthStr : months[months.length - 2] ?? months[0];
+  });
   const [practiceSessions, setPracticeSessions] = useState([]);
   const [scheduleSessions, setScheduleSessions] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -401,6 +405,7 @@ export default function App() {
   // タブ切替時に先頭にスクロール
   function handleMonthChange(month) {
     setActiveMonth(month);
+    localStorage.setItem('shinkan_active_month', month);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -520,17 +525,17 @@ export default function App() {
       {/* ── Header ── */}
       <header className="sticky top-0 z-20">
         <div 
-          className="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 shadow-lg pb-3"
+          className="bg-gradient-to-r from-pink-400 via-pink-500 to-rose-500 shadow-lg pb-3"
           style={{ paddingTop: 'calc(env(safe-area-inset-top) + 0.875rem)' }}
         >
           <div className="max-w-lg mx-auto px-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5 relative">
-                <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-sm shrink-0 overflow-hidden">
-                  <img src="/icon.png" alt="sakura" className="w-7 h-7 object-contain" />
+                <div className="w-9 h-9 flex items-center justify-center shrink-0">
+                  <img src="/icon.png" alt="sakura" className="w-8 h-8 object-contain drop-shadow-sm" />
                 </div>
                 <div className="relative">
-                  <p className="text-white/70 text-[10px] font-bold leading-none mb-1 tracking-widest uppercase">
+                  <p className="text-white/80 text-[10px] font-bold leading-none mb-1 tracking-widest uppercase">
                     農工大陸上部新歓
                   </p>
                   <button 
@@ -554,7 +559,7 @@ export default function App() {
                               key={month} 
                               onClick={() => { handleMonthChange(month); setShowMonthDropdown(false); }}
                               className={`w-full text-left px-5 py-3.5 text-[15px] font-bold transition-colors border-b border-slate-50 last:border-none ${
-                                activeMonth === month ? 'bg-blue-50 text-blue-700' : 'text-slate-700 hover:bg-slate-50'
+                                activeMonth === month ? 'bg-pink-50 text-pink-700' : 'text-slate-700 hover:bg-slate-50'
                               }`}
                             >
                               {month === '日程一覧' ? (
@@ -564,7 +569,7 @@ export default function App() {
                                 </span>
                               ) : (
                                 <span className="flex items-center gap-2">
-                                  <CalendarDays size={16} className="text-blue-500 opacity-60" />
+                                  <CalendarDays size={16} className="text-pink-500 opacity-60" />
                                   {month}
                                 </span>
                               )}
