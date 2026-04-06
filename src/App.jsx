@@ -119,10 +119,10 @@ function PracticeCard({ item, defaultOpen = false, isToday = false, isNext = fal
                 </p>
               )}
               {isToday && (
-                <span className="text-xs font-bold px-2 py-0.5 bg-pink-600 text-white rounded-full">今日</span>
+                <span className="text-xs font-bold px-2 py-0.5 bg-pink-500 text-white rounded-full">今日</span>
               )}
               {isNext && (
-                <span className="text-xs font-bold px-2 py-0.5 bg-pink-100 text-pink-600 rounded-full">次の予定</span>
+                <span className="text-xs font-bold px-2 py-0.5 bg-pink-50 text-pink-500 rounded-full border border-pink-100">次の予定</span>
               )}
               {item.type === 'event' && (
                 <span className="text-xs font-bold px-2 py-0.5 bg-fuchsia-100 text-fuchsia-700 rounded-full border border-fuchsia-200">大会・行事</span>
@@ -520,12 +520,12 @@ export default function App() {
   })();
 
   return (
-    <div className="min-h-screen bg-slate-100">
-
+    <div className="min-h-screen bg-[#fff5f7]">
+ 
       {/* ── Header ── */}
       <header className="sticky top-0 z-20">
         <div 
-          className="bg-gradient-to-r from-pink-400 via-pink-500 to-rose-500 shadow-lg pb-3"
+          className="bg-gradient-to-r from-pink-300 via-pink-400 to-pink-300 shadow-sm pb-3 text-white"
           style={{ paddingTop: 'calc(env(safe-area-inset-top) + 0.875rem)' }}
         >
           <div className="max-w-lg mx-auto px-4">
@@ -535,16 +535,16 @@ export default function App() {
                   <img src="/icon.png" alt="sakura" className="w-8 h-8 object-contain drop-shadow-sm" />
                 </div>
                 <div className="relative">
-                  <p className="text-white/80 text-[10px] font-bold leading-none mb-1 tracking-widest uppercase">
+                  <p className="text-white/90 text-[10px] font-bold leading-none mb-1 tracking-widest uppercase">
                     農工大陸上部新歓
                   </p>
                   <button 
                     onClick={() => setShowMonthDropdown(!showMonthDropdown)}
                     className="flex items-center gap-1 text-white font-black text-xl leading-none tracking-tight focus:outline-none"
                   >
-                    {activeMonth} <ChevronDown size={18} className={`transition-transform duration-200 opacity-90 ${showMonthDropdown ? 'rotate-180' : ''}`} />
+                    {activeMonth} <ChevronDown size={18} className={`transition-transform duration-200 opacity-70 ${showMonthDropdown ? 'rotate-180' : ''}`} />
                   </button>
-                  <p className="text-blue-200 text-xs font-semibold leading-none mt-1 tracking-wide">
+                  <p className="text-pink-50 text-xs font-semibold leading-none mt-1.5 tracking-wide">
                     {activeMonth === '日程一覧' ? '大会・行事・記録会' : '練習メニュー'}
                   </p>
                   

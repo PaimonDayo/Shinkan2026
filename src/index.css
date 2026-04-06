@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #ec4899;
+  --color-primary: #db2777;
   --color-track: #ef4444;
 }
 
 html, body {
-  background: linear-gradient(to right, #f472b6, #ec4899, #db2777);
+  background-color: #fff5f7;
   font-family: 'Inter', 'Noto Sans JP', sans-serif;
   height: 100%;
 }
